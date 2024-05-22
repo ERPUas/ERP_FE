@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { Icon } from '@iconify/react/dist/iconify.js';
+import googleIcon from '@iconify/icons-logos/google-icon'
 const Login = () => {
   console.log("Login component rendered");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here (e.g., send data to backend for login)
     console.log("Login form submitted!");
   }
 
@@ -40,9 +40,19 @@ const Login = () => {
                 Remember for 30 days
               </label>
             </div>
-            <button className='font-medium text-base text-green-400 mt-4 px-4 py-2 border-2 border-green-400 rounded-xl'>
-                Login
+           <div className='mt-8 flex flex-col gap-y-4'>
+              <button className='py-3 rounded-xl bg-violet-500 text-white text-lg font-bold'>
+                Sign in
               </button>
+              <button className='flex items-center justify-center py-3'>
+                <Icon icon={googleIcon} style={{ fontSize: '15px', color: 'red', marginRight: '8px' }} />
+                Sign in with Google
+              </button>
+           </div>
+           <div className='mt-8 flex justify-center items-center'>
+              <p className='font-medium text-base'>Dont't have an account?</p>
+              <button className='text-violet-500 text text-base font-medium ml-2'>Sign up</button>
+            </div>
           </div>
         </form>
         </div>
