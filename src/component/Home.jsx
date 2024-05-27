@@ -1,10 +1,14 @@
 import React from 'react';
+import { MembersTable } from './Product'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>    
+    <div class="container mx-auto">
+    <div><MembersTable/></div>
+  </div>
+    </>
+
   );
 };
 

@@ -21,7 +21,7 @@ const Login = () => {
         setError(action.payload || 'Login failed');
       } else {
         localStorage.setItem("accessToken", action.payload.token);
-        navigate("/");
+        navigate("/home");
       }
     });
   };
