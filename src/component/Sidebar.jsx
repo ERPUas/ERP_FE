@@ -4,9 +4,9 @@ import { FaCarSide } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { MdDashboard } from "react-icons/md";
 import Pesanan from './Pesanan';
+import { MembersTable } from "./Product";
 
 const Dashboard = () => <div>Dashboard Content</div>;
-const DetailPesanan = () => <div>Detail Pesanan Content</div>;
 const Barang = () => <div>Barang Content</div>;
 
 const SideBar = () => {
@@ -15,8 +15,7 @@ const SideBar = () => {
 
     const Menus = [
         { title: "Dashboard", component: <Dashboard /> },
-        { title: "Detail Pesanan", component: <DetailPesanan /> },
-        { title: "Barang", component: <Barang />, spacing: true },
+        { title: "Barang", component: <MembersTable />},
         { title: "Pesanan", component: <Pesanan /> },
     ];
 
