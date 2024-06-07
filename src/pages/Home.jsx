@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -7,8 +7,8 @@ const Home = () => {
         setIsOpen((prevState) => !prevState);
     };
 
-    const handleLOgin = () => {
-        navi
+    const handleLogin = () => {
+        navigate('/login')
     }
 
     return (
@@ -28,7 +28,7 @@ const Home = () => {
                     </ul>
                     <ul className="flex flex-col md:flex-row md:space-x-2 mt-2 md:mt-0 md:pl-4 w-full md:w-auto ml-auto lg:pl-4 font-poppins font-medium">
                         <li><a href="#" className="block lg:border lg:border-blue-500 lg:text-blue-500 lg:rounded-md lg:hover:bg-blue-500 lg:hover:text-white lg:px-6 lg:py-1
-                        md:border-blue-500 md:border md:px-4 md:py-1 md:rounded-md md:text-blue-500 md:hover:bg-blue-500 md:hover:text-white">Login</a></li>
+                        md:border-blue-500 md:border md:px-4 md:py-1 md:rounded-md md:text-blue-500 md:hover:bg-blue-500 md:hover:text-white" onClick={handleLogin}>Login</a></li>
                         <li><a href="#" className="block lg:hover:border lg:hover:border-blue-500 lg:hover:text-blue-500 lg:hover:bg-white lg:px-6 lg:py-1 lg:rounded-md lg:bg-blue-500 lg:text-white
                         md:bg-blue-500 md:px-4 md:py-1 md:rounded-md md:text-white md:hover:bg-white md:border md:border-blue-500 md:hover:text-blue-500">Sign Up</a></li>
                     </ul>
@@ -80,10 +80,6 @@ const Home = () => {
                     <p className="text-sm text-center">Experience The Future Of Automotive Innovation With Our Latest Car Models</p>
                 </div>
             </body>
-
-
-
-
         </section>
         
     );
