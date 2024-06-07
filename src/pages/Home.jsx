@@ -1,15 +1,32 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [barang, setBarang] = useState([]);
+    const navigate = useNavigate();
 
     const handleToggle = () => {
         setIsOpen((prevState) => !prevState);
     };
 
+    useEffect(() => {
+        fetchBarang();
+    }, []);
+
+    const fetchBarang = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/barang');
+            setBarang(response.data); // Updated to match the response format
+        } catch (err) {
+            console.error('error fetching barang', err);
+        }
+    };
+
     const handleLogin = () => {
-        navigate('/login')
-    }
+        navigate('/login');
+    };
 
     return (
         <section>
@@ -79,9 +96,21 @@ const Home = () => {
                     <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Latest <span className="text-blue-500">Inventory</span></h1>
                     <p className="text-sm text-center">Experience The Future Of Automotive Innovation With Our Latest Car Models</p>
                 </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                    {barang.map((item) => (
+                        <div key={item._id} className="bg-white p-4 rounded-lg shadow-lg">
+                            <img src={`http://localhost:3000/${item.Gambar}`} alt={item.Model} className="w-full h-48 object-cover rounded-md"/>
+                            <h2 className="font-bold text-xl mt-4">{item.Merek} {item.Model}</h2>
+                            <p className="text-gray-600">{item.Tahun}</p>
+                            <p className="text-gray-600">{item.Warna}</p>
+                            <p className="text-gray-600">Rp. {item.Biaya}</p>
+                            <p className="text-gray-600">{item.Status}</p>
+                            <p className="text-gray-600">Stok: {item.Stok}</p>
+                        </div>
+                    ))}
+                </div>
             </body>
         </section>
-        
     );
 };
 
