@@ -15,12 +15,11 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("login", username, password);
     dispatch(login({ username, password })).then((action) => {
       if (action.error) {
         setError(action.payload || 'Login failed');
       } else {
-        localStorage.setItem("accessToken", action.payload.token);
+        localStorage.setItem("token", action.payload.token);  // Ensure the key is 'token'
         navigate("/sidebar");
       }
     });

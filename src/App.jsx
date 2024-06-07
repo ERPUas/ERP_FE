@@ -6,16 +6,35 @@ import Register from './pages/register';
 import SideBar from './component/Sidebar';
 import { MembersTable } from './component/Product';
 import Home from './pages/Home';
+import ProtectedRoute from '../protectedRoute';
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home />}/>
+      <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/pesanan' element={<Pesanan />} />
+      <Route path='/pesanan' element={
+        <ProtectedRoute>
+           <Pesanan />
+        </ProtectedRoute>
+        } />
       <Route path='/register' element={<Register />} />
-      <Route path='/sidebar' element={<SideBar/>}/>
-      <Route path='product' element={<MembersTable/>}/>
+      <Route
+        path='/sidebar'
+        element={
+          <ProtectedRoute>
+            <SideBar />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path='/product'
+        element={
+          <ProtectedRoute>
+            <MembersTable />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }

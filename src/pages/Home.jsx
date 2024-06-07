@@ -95,7 +95,7 @@ const Home = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
                     {barang.map((item) => (
                         <div key={item._id} className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500">
-                            <img src={`http://localhost:3000/${item.Gambar}`} alt={item.Model} className="w-full h-32 md:h-38 lg:h-44 object-cover rounded-md"/>
+                            <img src={`http://localhost:3000/${item.Gambar}`} alt={item.Model} className="w-full h-34 md:h-38 lg:h-44 object-cover rounded-md"/>
                             <h2 className="font-bold text-xl mt-4">{item.Merek} {item.Model}</h2>
                             <p className="text-gray-600">{item.Tahun}</p>
                             <p className="text-gray-600">{item.Warna}</p>
@@ -110,6 +110,37 @@ const Home = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="flex justify-center mt-8">
+                    <button className="bg-blue-500 text-white text-sm font-poppins font-semibold px-14 py-2 rounded-lg hover:bg-blue-800 hover:duration-300">
+                        See All
+                    </button>
+                </div>
+                <div className="grid w-full justify-center mt-14 font-poppins">
+                    <h1 className="font-bold text-2xl text-center lg:text-4xl md:text-3xl">Why <span className="text-blue-500">Choose</span> Us</h1>
+                    <p className="text-sm text-center mt-4">We Stand As Your Trusted Partner. Our Dedication To Quality, Information <br className="hidden sm:block" />and Customer Satisfacation Set Us Apart</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                    <div>
+                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">24 Hour Support</h1>
+                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                        </p>
+                    </div>
+                    <div>
+                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Best Price</h1>
+                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                        </p>
+                    </div>
+                    <div>
+                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Verified License</h1>
+                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                        </p>
+                    </div>
+                    <div>
+                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Free Concelation</h1>
+                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                        </p>
+                    </div>
                 </div>
             </body>
         </section>
