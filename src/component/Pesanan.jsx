@@ -15,11 +15,11 @@ const Pesanan = () => {
 
   const fetchPesanan = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/pesanan');
-      setPesanan(response.data);
-    } catch (error) {
-      console.error('Error fetching pesanan:', error);
-    }
+      const response = await axios.get('http://localhost:3000/pelanggan')
+      setPelanggan(response.data.data) // Mengakses array data pelanggan dari properti data
+  } catch (err) {
+      console.error('error fetching pelanggan', err)
+  }
   };
 
   const handleEdit = (data) => {

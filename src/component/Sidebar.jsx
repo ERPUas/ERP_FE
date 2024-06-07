@@ -5,9 +5,8 @@ import { CiSearch } from "react-icons/ci";
 import { MdDashboard } from "react-icons/md";
 import Pesanan from './Pesanan';
 import { MembersTable } from "./Product";
-
-const Dashboard = () => <div>Dashboard Content</div>;
-const Barang = () => <div>Barang Content</div>;
+import Dashboard from "./Dashboard";
+import Pelanggan from "./Pelanggan";
 
 const SideBar = () => {
     const [open, setOpen] = useState(true);
@@ -17,6 +16,7 @@ const SideBar = () => {
         { title: "Dashboard", component: <Dashboard /> },
         { title: "Barang", component: <MembersTable />},
         { title: "Pesanan", component: <Pesanan /> },
+        { title: "Pelanggan", component: <Pelanggan />}
     ];
 
     const renderContent = () => {
