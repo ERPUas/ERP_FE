@@ -18,20 +18,16 @@ const Home = () => {
     const fetchBarang = async () => {
         try {
             const response = await axios.get('http://localhost:3000/barang');
-            setBarang(response.data); // Updated to match the response format
+            setBarang(response.data);
         } catch (err) {
             console.error('error fetching barang', err);
         }
     };
 
-    const handleLogin = () => {
-        navigate('/login');
-    };
-
     return (
         <section>
             <div className="flex items-center justify-between w-full px-20 py-10 lg:px-40">
-                <a href="#" className="font-poppins text-lg">logo</a>
+                <a href="/" className="font-poppins text-lg">logo</a>
                 <button className="block md:hidden" onClick={handleToggle}>
                     <span className="block w-6 h-0.5 bg-gray-800 mb-1"></span>
                     <span className="block w-6 h-0.5 bg-gray-800 mb-1"></span>
@@ -44,10 +40,10 @@ const Home = () => {
                         <li><a href="#" className="block p-2 hover:text-blue-500">Contact</a></li>
                     </ul>
                     <ul className="flex flex-col md:flex-row md:space-x-2 mt-2 md:mt-0 md:pl-4 w-full md:w-auto ml-auto lg:pl-4 font-poppins font-medium">
-                        <li><a href="#" className="block lg:border lg:border-blue-500 lg:text-blue-500 lg:rounded-md lg:hover:bg-blue-500 lg:hover:text-white lg:px-6 lg:py-1
-                        md:border-blue-500 md:border md:px-4 md:py-1 md:rounded-md md:text-blue-500 md:hover:bg-blue-500 md:hover:text-white" onClick={handleLogin}>Login</a></li>
+                        <li><a href="/login" className="block lg:border lg:border-blue-500 lg:text-blue-500 lg:rounded-md lg:hover:bg-blue-500 lg:hover:text-white lg:px-6 lg:py-1 hover:duration-300
+                        md:border-blue-500 md:border md:px-4 md:py-1 md:rounded-md md:text-blue-500 md:hover:bg-blue-500 md:hover:text-white">Login</a></li>
                         <li><a href="#" className="block lg:hover:border lg:hover:border-blue-500 lg:hover:text-blue-500 lg:hover:bg-white lg:px-6 lg:py-1 lg:rounded-md lg:bg-blue-500 lg:text-white
-                        md:bg-blue-500 md:px-4 md:py-1 md:rounded-md md:text-white md:hover:bg-white md:border md:border-blue-500 md:hover:text-blue-500">Sign Up</a></li>
+                        md:bg-blue-500 md:px-4 md:py-1 md:rounded-md md:text-white md:hover:bg-white md:border md:border-blue-500 md:hover:text-blue-500 hover:duration-300">Sign Up</a></li>
                     </ul>
                 </nav>
             </div>
@@ -60,7 +56,7 @@ const Home = () => {
                         </h1>
                         <p className="mt-4 text-sm">We offer a wide range of rental cars to suit your needs. Whether you're planning a weekend getaway or a business trip.</p>
                         <div className="mt-6">
-                            <button className="px-10 py-2 font-bold rounded-md text-white bg-blue-500 hover:border hover:border-blue-500 hover:text-blue-500 hover:bg-white">
+                            <button className="px-10 py-2 font-bold rounded-md text-white bg-blue-500 hover:border hover:border-blue-500 hover:text-blue-500 hover:bg-white hover:duration-300">
                                 Rent Car
                             </button>
                         </div>
@@ -96,16 +92,22 @@ const Home = () => {
                     <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Latest <span className="text-blue-500">Inventory</span></h1>
                     <p className="text-sm text-center">Experience The Future Of Automotive Innovation With Our Latest Car Models</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
                     {barang.map((item) => (
-                        <div key={item._id} className="bg-white p-4 rounded-lg shadow-lg">
-                            <img src={`http://localhost:3000/${item.Gambar}`} alt={item.Model} className="w-full h-48 object-cover rounded-md"/>
+                        <div key={item._id} className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500">
+                            <img src={`http://localhost:3000/${item.Gambar}`} alt={item.Model} className="w-full h-32 md:h-38 lg:h-44 object-cover rounded-md"/>
                             <h2 className="font-bold text-xl mt-4">{item.Merek} {item.Model}</h2>
                             <p className="text-gray-600">{item.Tahun}</p>
                             <p className="text-gray-600">{item.Warna}</p>
-                            <p className="text-gray-600">Rp. {item.Biaya}</p>
                             <p className="text-gray-600">{item.Status}</p>
                             <p className="text-gray-600">Stok: {item.Stok}</p>
+                            <hr className="my-2 border-gray-300" />
+                            <div className="flex justify-between items-center mt-4">
+                                <button className="px-6 py-1 border-2 border-blue-500 font-semibold hover:border-blue-900 hover:text-blue-900 rounded-md text-blue-500">
+                                    Rent Car
+                                </button>
+                                <p className="text-blue-500 font-bold"><span className="font-medium">Rp.</span> {item.Biaya}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
