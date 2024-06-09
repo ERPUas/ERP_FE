@@ -92,7 +92,7 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-                <div className="grid w-full justify-center font-poppins mt-10">
+                <div className="grid w-full justify-center font-poppins mt-28">
                     <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Latest <span className="text-blue-500">Inventory</span></h1>
                     <p className="text-sm text-center">Experience The Future Of Automotive Innovation With Our Latest Car Models</p>
                 </div>
@@ -120,7 +120,7 @@ const Home = () => {
                         See All
                     </button>
                 </div>
-                <div className="grid w-full justify-center mt-14 font-poppins">
+                <div className="grid w-full justify-center mt-28 font-poppins">
                     <h1 className="font-bold text-2xl text-center lg:text-4xl md:text-3xl">Why <span className="text-blue-500">Choose</span> Us</h1>
                     <p className="text-sm text-center mt-4">We Stand As Your Trusted Partner. Our Dedication To Quality, Information <br className="hidden sm:block" />and Customer Satisfacation Set Us Apart</p>
                 </div>
@@ -168,6 +168,24 @@ const Home = () => {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
                             </p>
                         </div>
+                    </div>
+                </div>
+                <div className="grid w-full justify-center font-poppins mt-28">
+                    <h1 className="font-bold text-2xl lg:text-4xl text-center">Our <span className="text-blue-500">Achievement</span></h1>
+                    <p className="text-sm text-center mt-4">Our Journey Of Success Is A Testament To The Creative Efforts And Determination Of Our Team</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-10 bg-white py-10 shadow-lg shadow-blue-500">
+                    <div className="flex flex-col items-center justify-center">
+                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">4000+</h1>
+                        <p className="font-semibold text-sm">Active Member</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center ">
+                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">3000+</h1>
+                        <p className="font-semibold text-sm">Car Model</p>
+                    </div>
+                    <div className="flex flex-col items-center justify-center">
+                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">6K</h1>
+                        <p className="font-semibold text-sm">Positive Rating</p>
                     </div>
                 </div>
             </body>
