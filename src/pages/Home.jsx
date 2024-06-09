@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoShieldCheckmark } from "react-icons/io5";
+import { TiDeleteOutline } from "react-icons/ti";
+import { LiaMedalSolid } from "react-icons/lia";
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -121,25 +125,49 @@ const Home = () => {
                     <p className="text-sm text-center mt-4">We Stand As Your Trusted Partner. Our Dedication To Quality, Information <br className="hidden sm:block" />and Customer Satisfacation Set Us Apart</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-                    <div>
-                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">24 Hour Support</h1>
-                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                        </p>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <FaPhoneAlt className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">24 Hour Support</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Best Price</h1>
-                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                        </p>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <LiaMedalSolid className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Best Price</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Verified License</h1>
-                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                        </p>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <IoShieldCheckmark className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Verified Liscense</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 className="font-bold text-sm text-center md:text-left md:text-lg">Free Concelation</h1>
-                        <p className="text-sm text-center md:text-left md:text-base mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                        </p>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <TiDeleteOutline className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Free Cancelation</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
                     </div>
                 </div>
             </body>
