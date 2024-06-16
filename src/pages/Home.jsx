@@ -5,11 +5,16 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { TiDeleteOutline } from "react-icons/ti";
 import { LiaMedalSolid } from "react-icons/lia";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const Home = () => {
+    const [ulasan, setUlasan] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [barang, setBarang] = useState([]);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     const handleToggle = () => {
         setIsOpen((prevState) => !prevState);
@@ -17,6 +22,7 @@ const Home = () => {
 
     useEffect(() => {
         fetchBarang();
+        fetchUlasan();
     }, []);
 
     const fetchBarang = async () => {
@@ -27,31 +33,74 @@ const Home = () => {
             console.error('error fetching barang', err);
         }
     };
+    
+    const fetchUlasan = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/ulasan');
+            console.log(response.data);
+            setUlasan(response.data);
+        } catch (error) {
+            console.error('error mengambil', error);
+        }
+    }
+     const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
     return (
         <section>
-            <div className="flex items-center justify-between w-full px-20 py-10 lg:px-40">
+            {/* Hamburger Menu */}
+            <div className="flex items-center justify-between w-full px-4 py-12 lg:px-40 bg-white">
                 <a href="/" className="font-poppins text-lg">logo</a>
                 <button className="block md:hidden" onClick={handleToggle}>
                     <span className="block w-6 h-0.5 bg-gray-800 mb-1"></span>
                     <span className="block w-6 h-0.5 bg-gray-800 mb-1"></span>
                     <span className="block w-6 h-0.5 bg-gray-800"></span>
                 </button>
-                <nav className={`absolute top-16 left-0 w-full md:relative md:top-0 md:left-0 md:w-auto ${isOpen ? "block" : "hidden"} md:flex flex-col md:flex-row items-center`}>
+                <nav className={`absolute top-16 left-0 w-full md:relative md:top-0 md:left-0 md:w-auto ${isOpen ? "block" : "hidden"} md:flex items-center bg-white md:bg-transparent`}>
                     <ul className="flex flex-col md:flex-row md:space-x-4 mt-2 md:mt-0 w-full md:w-auto font-poppins">
                         <li><a href="#" className="block p-2 hover:text-blue-500">Home</a></li>
                         <li><a href="#" className="block p-2 hover:text-blue-500">About</a></li>
                         <li><a href="#" className="block p-2 hover:text-blue-500">Contact</a></li>
                     </ul>
-                    <ul className="flex flex-col md:flex-row md:space-x-2 mt-2 md:mt-0 md:pl-4 w-full md:w-auto ml-auto lg:pl-4 font-poppins font-medium">
-                        <li><a href="/login" className="block lg:border lg:border-blue-500 lg:text-blue-500 lg:rounded-md lg:hover:bg-blue-500 lg:hover:text-white lg:px-6 lg:py-1 hover:duration-300
-                        md:border-blue-500 md:border md:px-4 md:py-1 md:rounded-md md:text-blue-500 md:hover:bg-blue-500 md:hover:text-white">Login</a></li>
-                        <li><a href="#" className="block lg:hover:border lg:hover:border-blue-500 lg:hover:text-blue-500 lg:hover:bg-white lg:px-6 lg:py-1 lg:rounded-md lg:bg-blue-500 lg:text-white
-                        md:bg-blue-500 md:px-4 md:py-1 md:rounded-md md:text-white md:hover:bg-white md:border md:border-blue-500 md:hover:text-blue-500 hover:duration-300">Sign Up</a></li>
+                    <ul className="flex flex-col md:flex-row md:space-x-2 mt-2 md:mt-0 w-full md:w-auto ml-auto lg:pl-4 font-poppins font-medium">
+                        <li>
+                            <a href="/login" className="block border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white px-6 py-1 transition duration-300">
+                                Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="block bg-blue-500 text-white rounded-md hover:bg-white hover:text-blue-500 border border-blue-500 px-6 py-1 transition duration-300">
+                                Sign Up
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <head className="grid w-full justify-center font-poppins px-20 py-4 lg:px-40">
+            {/* Dashboard Home */}
+            <header className="grid w-full justify-center font-poppins px-20 py-10 lg:px-40">
                 <div className="grid md:grid-cols-2 md:gap-20 items-center">
                     <img src="src/assets/img/pngwing.com.png" alt="Car" className="md:hidden w-full h-auto"/>
                     <div>
@@ -67,8 +116,8 @@ const Home = () => {
                     </div>
                     <img src="src/assets/img/pngwing.com.png" alt="Car" className="hidden md:block w-full h-auto"/>
                 </div>
-            </head>
-            <body className="grid w-full justify-center font-poppins px-20 py-4 lg:px-40 mt-6">
+            </header>
+            <main className="grid w-full justify-center font-poppins px-20 py-4 lg:px-40 mt-6">
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full bg-white md:p-10 lg:p-14 rounded-lg shadow-lg shadow-blue-500 p-4">
                     <div className="md:col-span-1">
                         <label htmlFor="pickupLocation" className="font-bold block text-sm mb-2">Pick Up Location</label>
@@ -92,6 +141,7 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
+                {/* Latest Inventory Section */}
                 <div className="grid w-full justify-center font-poppins mt-28">
                     <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Latest <span className="text-blue-500">Inventory</span></h1>
                     <p className="text-sm text-center">Experience The Future Of Automotive Innovation With Our Latest Car Models</p>
@@ -110,85 +160,66 @@ const Home = () => {
                                 <button className="px-6 py-1 border-2 border-blue-500 font-semibold hover:border-blue-900 hover:text-blue-900 rounded-md text-blue-500">
                                     Rent Car
                                 </button>
-                                <p className="text-blue-500 font-bold"><span className="font-medium">Rp.</span> {item.Biaya}</p>
+                                <button className="px-6 py-1 border-2 border-blue-500 font-semibold hover:border-blue-900 hover:text-blue-900 rounded-md text-blue-500" onClick={() => navigate(`/barang/${item._id}`)}>
+                                    Detail
+                                </button>
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-center mt-8">
-                    <button className="bg-blue-500 text-white text-sm font-poppins font-semibold px-14 py-2 rounded-lg hover:bg-blue-800 hover:duration-300">
-                        See All
-                    </button>
+            </main>
+            {/* Features Section */}
+            <div className="grid w-full justify-center font-poppins mt-28">
+                <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Our <span className="text-blue-500">Feature</span></h1>
+                <p className="text-sm text-center">We Offer A Wide Range Of Rental Cars To Suit Your Needs</p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mt-10 w-full justify-center px-20 lg:px-40">
+                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
+                    <div className="flex justify-center mb-4 text-blue-500">
+                        <FaPhoneAlt size={36} />
+                    </div>
+                    <h2 className="font-bold text-xl mb-2">24/7 Support</h2>
+                    <p className="text-gray-600">Always Here For You Anytime, Anywhere</p>
                 </div>
-                <div className="grid w-full justify-center mt-28 font-poppins">
-                    <h1 className="font-bold text-2xl text-center lg:text-4xl md:text-3xl">Why <span className="text-blue-500">Choose</span> Us</h1>
-                    <p className="text-sm text-center mt-4">We Stand As Your Trusted Partner. Our Dedication To Quality, Information <br className="hidden sm:block" />and Customer Satisfacation Set Us Apart</p>
+                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
+                    <div className="flex justify-center mb-4 text-blue-500">
+                        <IoShieldCheckmark size={36} />
+                    </div>
+                    <h2 className="font-bold text-xl mb-2">Reliable</h2>
+                    <p className="text-gray-600">Quality Cars You Can Trust For Your Journey</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-                    <div className="flex flex-col md:flex-row items-center md:items-start">
-                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
-                            <FaPhoneAlt className="text-lg md:text-2xl" />
-                        </div>
-                        <div>
-                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">24 Hour Support</h1>
-                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                            </p>
-                        </div>
+                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
+                    <div className="flex justify-center mb-4 text-blue-500">
+                        <TiDeleteOutline size={36} />
                     </div>
-                    <div className="flex flex-col md:flex-row items-center md:items-start">
-                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
-                            <LiaMedalSolid className="text-lg md:text-2xl" />
-                        </div>
-                        <div>
-                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Best Price</h1>
-                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row items-center md:items-start">
-                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
-                            <IoShieldCheckmark className="text-lg md:text-2xl" />
-                        </div>
-                        <div>
-                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Verified Liscense</h1>
-                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row items-center md:items-start">
-                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
-                            <TiDeleteOutline className="text-lg md:text-2xl" />
-                        </div>
-                        <div>
-                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Free Cancelation</h1>
-                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
-                            </p>
-                        </div>
-                    </div>
+                    <h2 className="font-bold text-xl mb-2">No Hidden Charges</h2>
+                    <p className="text-gray-600">Transparent Pricing With No Surprises</p>
                 </div>
-                <div className="grid w-full justify-center font-poppins mt-28">
-                    <h1 className="font-bold text-2xl lg:text-4xl text-center">Our <span className="text-blue-500">Achievement</span></h1>
-                    <p className="text-sm text-center mt-4">Our Journey Of Success Is A Testament To The Creative Efforts And Determination Of Our Team</p>
+                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
+                    <div className="flex justify-center mb-4 text-blue-500">
+                        <LiaMedalSolid size={36} />
+                    </div>
+                    <h2 className="font-bold text-xl mb-2">Best Quality</h2>
+                    <p className="text-gray-600">Top-notch Cars For A Smooth Ride</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-10 bg-white py-10 shadow-lg shadow-blue-500">
-                    <div className="flex flex-col items-center justify-center">
-                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">4000+</h1>
-                        <p className="font-semibold text-sm">Active Member</p>
-                    </div>
-                    <div className="flex flex-col items-center justify-center ">
-                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">3000+</h1>
-                        <p className="font-semibold text-sm">Car Model</p>
-                    </div>
-                    <div className="flex flex-col items-center justify-center">
-                        <h1 className="font-bold text-base lg:text-2xl text-blue-500">6K</h1>
-                        <p className="font-semibold text-sm">Positive Rating</p>
-                    </div>
+            </div>
+            {/* UlasanSlider Component */}
+            <div className="grid w-full justify-center font-poppins mt-28">
+                <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Customer <span className="text-blue-500">Reviews</span></h1>
+                <p className="text-sm text-center">Here's What Our Customers Are Saying</p>
+            </div>
+            <div className="mt-10 w-full px-20 lg:px-40">
+                    <Slider {...settings}>
+                        {ulasan.map((item) => (
+                            <div key={item._id} className="bg-white p-6 rounded-2xl shadow-2xl text-center">
+                                <img src={`http://localhost:3000/${item.PelangganID.Gambar}`} alt={item.PelangganID.name} className="w-16 h-16 rounded-full mx-auto"/>
+                                <p className="font-bold mt-4">{item.PelangganID.name}</p>
+                                <p className="text-gray-600 mt-2">{item.rating} / 5</p>
+                                <p className="text-gray-600 mt-2">"{item.ulasan}"</p>
+                            </div>
+                        ))}
+                    </Slider>
                 </div>
-            </body>
         </section>
     );
 };
