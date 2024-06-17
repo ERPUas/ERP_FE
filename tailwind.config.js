@@ -9,7 +9,7 @@ export default {
       colors:{
         "dark-purple": "#081A51",
         'light-white': 'rgba(255,255,255,0.18)',
-        "light-blue": "#A7E6FF"
+        "light-blue": "#3ABEF9"
       },
       fontFamily:{
         poppins: ['Poppins', 'sans-serif']

@@ -222,7 +222,7 @@ const Home = () => {
              </div>
             </div>
             {/* Achivmment section */}
-            <div className="grid w-full justify-center font-poppins mt-28 px-20 lg:px-40">
+            <div className="grid w-full justify-center font-poppins mt-20 px-20 lg:px-40">
                 <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-19 md:text-3xl">Our <span className="text-blue-500">Achievement</span></h1>
                 <p className="text-sm text-center">Our Journey of Successfull is a Treatment to the Creative Efforts and Dicpline of Team</p>
             </div>
@@ -242,12 +242,12 @@ const Home = () => {
             </div>
 
             {/* UlasanSlider Component */}
-        <div className="bg-blue-50 py-24 mt-20">
+        <div className="bg-blue-50 py-16 mt-20">
             <div className="grid w-full justify-center font-poppins">
                     <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">What Our <span className="text-blue-500">Customers</span> Have <br />To Say</h1>
                     <p className="text-sm text-center mt-2">Here's What Our Customers Are Saying</p>
                 </div>
-                <div className="mt-10 w-full px-20 lg:px-40">
+                <div className="mt-10 w-full px-20 lg:px-56">
                     <Slider {...settings}>
                         {ulasan.map((item) => (
                             <div key={item._id} className="p-2"> {/* Added padding to ensure grid gap works */}
@@ -264,6 +264,18 @@ const Home = () => {
         </div>
 
         {/* contact Section */}
+        <div class="flex flex-col lg:flex-row justify-center items-center mt-20 font-poppins px-20 lg:px-40 mx-auto max-w-screen-lg shadow-lg py-10 rounded-lg bg-light-blue relative">
+            <div class="lg:w-1/2 flex flex-col justify-center z-10">
+                <h1 class="font-bold md:text-xl lg:text-2xl text-lg text-white">Ready To Get Started?</h1>
+                <p class="text-sm font-medium mt-6 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, quasi minima hic natus ut sint numquam vel assumenda, qui.</p>
+                <div class="mt-6">
+                    <button class="text-black px-8 py-2 bg-white rounded-md font-medium">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+                <img src="src/assets/img/pngwing.com.png" alt="" class="w-1/2 h-auto z-10" />
+        </div>
         </section>
     );
 };
