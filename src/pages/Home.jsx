@@ -169,57 +169,101 @@ const Home = () => {
                 </div>
             </main>
             {/* Features Section */}
-            <div className="grid w-full justify-center font-poppins mt-28">
-                <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Our <span className="text-blue-500">Feature</span></h1>
-                <p className="text-sm text-center">We Offer A Wide Range Of Rental Cars To Suit Your Needs</p>
+            <div className="bg-blue-50 py-28 mt-20">
+            <div className="grid w-full justify-center font-poppins px-20">
+                    <h1 className="font-bold text-2xl text-center lg:text-4xl md:text-3xl">Why <span className="text-blue-500">Choose</span> Us</h1>
+                    <p className="text-sm text-center mt-4">We Stand As Your Trusted Partner. Our Dedication To Quality, Information <br className="hidden sm:block" />and Customer Satisfacation Set Us Apart</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 px-20 lg:px-40">
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <FaPhoneAlt className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">24 Hour Support</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <LiaMedalSolid className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Best Price</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <IoShieldCheckmark className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Verified Liscense</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col md:flex-row items-center md:items-start">
+                        <div className="hidden md:flex items-center justify-center bg-blue-500 text-white p-2 rounded-md mr-2 md:mr-4">
+                            <TiDeleteOutline className="text-lg md:text-2xl" />
+                        </div>
+                        <div>
+                            <h1 className="font-bold text-sm md:text-lg text-center md:text-left">Free Cancelation</h1>
+                            <p className="text-sm md:text-base mt-2 text-center md:text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aliquam cumque qui maxime nam quia tempora ipsa consequuntur debitis maiores hic delectus animi magni reprehenderi
+                            </p>
+                        </div>
+                    </div>
+             </div>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mt-10 w-full justify-center px-20 lg:px-40">
-                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
-                    <div className="flex justify-center mb-4 text-blue-500">
-                        <FaPhoneAlt size={36} />
-                    </div>
-                    <h2 className="font-bold text-xl mb-2">24/7 Support</h2>
-                    <p className="text-gray-600">Always Here For You Anytime, Anywhere</p>
+            {/* Achivmment section */}
+            <div className="grid w-full justify-center font-poppins mt-28 px-20 lg:px-40">
+                <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-19 md:text-3xl">Our <span className="text-blue-500">Achievement</span></h1>
+                <p className="text-sm text-center">Our Journey of Successfull is a Treatment to the Creative Efforts and Dicpline of Team</p>
+            </div>
+            <div className="flex w-full font-poppins py-14 mt-10 justify-center items-center shadow shadow-blue-300 p-5 space-x-12 md:space-x-36 lg:space-x-52 max-w-screen-lg mx-auto rounded-md">
+                <div className="text-center">
+                    <p className="font-semibold md:text-2xl lg:text-4xl text-blue-500">4000+</p>
+                    <p className="font-semibold text-sm">Active Memberr</p>
                 </div>
-                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
-                    <div className="flex justify-center mb-4 text-blue-500">
-                        <IoShieldCheckmark size={36} />
-                    </div>
-                    <h2 className="font-bold text-xl mb-2">Reliable</h2>
-                    <p className="text-gray-600">Quality Cars You Can Trust For Your Journey</p>
+                <div className="text-center">
+                    <p className="font-semibold md:text-2xl lg:text-4xl text-blue-500">3000+</p>
+                    <p className="font-semibold text-sm">Car Model</p>
                 </div>
-                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
-                    <div className="flex justify-center mb-4 text-blue-500">
-                        <TiDeleteOutline size={36} />
-                    </div>
-                    <h2 className="font-bold text-xl mb-2">No Hidden Charges</h2>
-                    <p className="text-gray-600">Transparent Pricing With No Surprises</p>
-                </div>
-                <div className="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-2xl hover:shadow-blue-500 hover:duration-500 text-center">
-                    <div className="flex justify-center mb-4 text-blue-500">
-                        <LiaMedalSolid size={36} />
-                    </div>
-                    <h2 className="font-bold text-xl mb-2">Best Quality</h2>
-                    <p className="text-gray-600">Top-notch Cars For A Smooth Ride</p>
+                <div className="text-center">
+                    <p className="font-semibold md:text-2xl lg:text-4xl text-blue-500">6K</p>
+                    <p className="font-semibold text-sm">Positive Rating</p>
                 </div>
             </div>
+
             {/* UlasanSlider Component */}
-            <div className="grid w-full justify-center font-poppins mt-28">
-                <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">Customer <span className="text-blue-500">Reviews</span></h1>
-                <p className="text-sm text-center">Here's What Our Customers Are Saying</p>
-            </div>
-            <div className="mt-10 w-full px-20 lg:px-40">
+        <div className="bg-blue-50 py-24 mt-20">
+            <div className="grid w-full justify-center font-poppins">
+                    <h1 className="font-bold text-2xl pb-2 text-center lg:text-4xl md:mt-10 md:text-3xl">What Our <span className="text-blue-500">Customers</span> Have <br />To Say</h1>
+                    <p className="text-sm text-center mt-2">Here's What Our Customers Are Saying</p>
+                </div>
+                <div className="mt-10 w-full px-20 lg:px-40">
                     <Slider {...settings}>
                         {ulasan.map((item) => (
-                            <div key={item._id} className="bg-white p-6 rounded-2xl shadow-2xl text-center">
-                                <img src={`http://localhost:3000/${item.PelangganID.Gambar}`} alt={item.PelangganID.name} className="w-16 h-16 rounded-full mx-auto"/>
-                                <p className="font-bold mt-4">{item.PelangganID.name}</p>
-                                <p className="text-gray-600 mt-2">{item.rating} / 5</p>
-                                <p className="text-gray-600 mt-2">"{item.ulasan}"</p>
+                            <div key={item._id} className="p-2"> {/* Added padding to ensure grid gap works */}
+                                <div className="bg-white p-6 rounded-2xl text-left flex flex-col items-start max-w-xs w-full hover:shadow hover:shadow-blue-200"> {/* Adjusted width */}
+                                    <img src={`http://localhost:3000/${item.PelangganID.Gambar}`} alt={item.PelangganID.name} className="w-16 h-16 rounded-full"/>
+                                    <p className="font-bold mt-4">{item.PelangganID.name}</p>
+                                    <p className="text-gray-600 mt-2">{item.rating} / 5</p>
+                                    <p className="text-gray-600 mt-2">"{item.ulasan}"</p>
+                                </div>
                             </div>
                         ))}
                     </Slider>
                 </div>
+        </div>
+
+        {/* contact Section */}
         </section>
     );
 };
