@@ -264,19 +264,25 @@ const Home = () => {
         </div>
 
         {/* contact Section */}
-        <div class="flex flex-col lg:flex-row justify-center items-center mt-20 font-poppins px-20 lg:px-40 mx-auto max-w-screen-lg shadow-lg py-10 rounded-lg bg-light-blue relative">
-            <div class="lg:w-1/2 flex flex-col justify-center z-10">
-                <h1 class="font-bold md:text-xl lg:text-2xl text-lg text-white">Ready To Get Started?</h1>
-                <p class="text-sm font-medium mt-6 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, quasi minima hic natus ut sint numquam vel assumenda, qui.</p>
-                <div class="mt-6">
-                    <button class="text-black px-8 py-2 bg-white rounded-md font-medium">
+        <div className="px-20 lg:px-40">
+        <div className="grid lg:grid-cols-2 justify-center items-center mt-20 font-poppins px-20 lg:px-40 shadow-lg  rounded-lg bg-light-blue">
+            <div className="flex flex-col justify-center z-10">
+                <h1 className="font-bold md:text-xl lg:text-2xl text-lg text-white">Ready To Get Started?</h1>
+                <p className="text-sm font-medium mt-6 text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, quasi minima hic natus ut sint numquam vel assumenda, qui.</p>
+                <div className="mt-6">
+                    <button className="text-black lg:px-10 lg:py-2 bg-white rounded-md font-medium text-sm lg:text-base py-1 px-6">
                         Contact Us
                     </button>
                 </div>
             </div>
-                <img src="src/assets/img/pngwing.com.png" alt="" class="w-1/2 h-auto z-10" />
+                <img src="src/assets/img/pngwing.com (6).png" alt="" className="hidden lg:block relative" />
+            </div>
         </div>
+        <footer>
+            
+        </footer>
         </section>
+        
     );
 };
 
